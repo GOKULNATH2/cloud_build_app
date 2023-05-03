@@ -1,0 +1,14 @@
+steps:
+- name: python
+  entrypoint: 'bash'
+  args: 
+  - '-c'
+  - |
+    if [[ -n $(git diff --name-only $COMMIT_SHA HEAD -- us/simple_app.py) ]]; then
+      echo "Changes detected"
+    else
+      echo "No changes detected"
+    fi
+
+
+
